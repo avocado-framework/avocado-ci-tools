@@ -1,0 +1,23 @@
+name: 'Avocado CI tools Collection'
+description: 'Run avocado-framework specific actions for avocado projects on pull requests or issues to improve avocado-framework development.'
+inputs:
+  # Python Project Configuration is expected to be in a pyproject.toml
+  avocado-static-checks:
+    description: |
+      Runs avocado-static-checks on pull requests.
+      Default is false.
+    default: false
+runs:
+  using: "composite"
+  steps:
+    - if: ${{ inputs.avocado-static-checks == 'true' }}
+      uses: actions/checkout@v2
+      with:
+        repository: avocado-framework/avocado-static-checks
+        path: avocado-ci-tools/static-checks
+    - if: ${{ inputs.avocado-static-checks  == 'true' }}
+      run: |
+        pip3 install -r avocado-ci-tools/static-checks/requirements.txt
+        avocado-ci-tools/static-checks/run-static-checks
+      shell: bash
+

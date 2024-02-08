@@ -3,6 +3,7 @@ needed by various of avocado projects.
 
 ## Supported tools:
 - avocado-static-checks
+- avocado-project manipulation
 
 ## Input
 
@@ -12,7 +13,11 @@ avocado-static-checks:
     Runs avocado-static-checks on pull requests.
     Default is false.
   default: false
-
+  avocado-project:
+    description: |
+      Mr. avocado configuration for manipulating with PR and issues.
+      Default is false.
+    default: false
 ```
 ## Usage
 

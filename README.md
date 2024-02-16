@@ -18,6 +18,18 @@ avocado-static-checks:
       Mr. avocado configuration for manipulating with PR and issues.
       Default is false.
     default: false
+  bot_app_id:
+    description: |
+      Bot app ID which is needed to generate access token for bot. It is required by avocado-project.
+    default: ''
+  bot_app_installation_id:
+    description: |
+      Bot app installation ID which is needed to generate access token for bot. It is required by avocado-project.
+    default: ''
+  bot_app_private_key:
+    description: |
+      Bot app private key which is needed to generate access token for bot. It is required by avocado-project.
+    default: ''
 ```
 ## Usage
 

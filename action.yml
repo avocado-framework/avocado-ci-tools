@@ -11,6 +11,18 @@ inputs:
       Mr. avocado configuration for manipulating with PR and issues.
       Default is false.
     default: false
+  bot_app_id:
+    description: |
+      Bot app ID which is needed to generate access token for bot. It is required by avocado-project.
+    default: ''
+  bot_app_installation_id:
+    description: |
+      Bot app installation ID which is needed to generate access token for bot. It is required by avocado-project.
+    default: ''
+  bot_app_private_key:
+    description: |
+      Bot app private key which is needed to generate access token for bot. It is required by avocado-project.
+    default: ''
 runs:
   using: "composite"
   steps:
@@ -31,9 +43,9 @@ runs:
       id: generate_token
       uses: tibdex/github-app-token@021a2405c7f990db57f5eae5397423dcc554159c
       with:
-        app_id: ${{ secrets.MR_AVOCADO_ID }}
-        installation_id: ${{ secrets.MR_AVOCADO_INSTALLATION_ID }}
-        private_key: ${{ secrets.MR_AVOCADO_PRIVATE_KEY }}
+        app_id: ${{ inputs.bot_app_id }}
+        installation_id: ${{ inputs.bot_app_installation_id }}
+        private_key: ${{ inputs.bot_app_private_key }}
     - if: ${{ inputs.avocado-project == 'true' }}
       name: Get project data
       env:

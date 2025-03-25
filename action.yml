@@ -31,11 +31,11 @@ runs:
       uses: actions/checkout@v2
       with:
         repository: avocado-framework/avocado-static-checks
-        path: avocado-ci-tools/static-checks
+        path: static-checks
     - if: ${{ inputs.avocado-static-checks  == 'true' }}
       run: |
-        pip3 install -r avocado-ci-tools/static-checks/requirements.txt
-        avocado-ci-tools/static-checks/run-static-checks
+        pip3 install -r static-checks/requirements.txt
+        static-checks/run-static-checks
       shell: bash
     # --- avocado-project ---
     - if: ${{ inputs.avocado-project == 'true' }}
